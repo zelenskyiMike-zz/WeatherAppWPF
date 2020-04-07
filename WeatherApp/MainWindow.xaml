@@ -1,0 +1,59 @@
+﻿<Window x:Class="WeatherApp.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WeatherApp"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="250" Width="380">
+
+    <Canvas >
+        <ComboBox x:Name="comboboxCities" Canvas.Left="120" Canvas.Top="10" Width="220">
+            <ComboBox.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <VirtualizingStackPanel />
+                </ItemsPanelTemplate>
+            </ComboBox.ItemsPanel>
+            <ComboBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="{Binding Name}" />
+                    </StackPanel>
+                </DataTemplate>
+            </ComboBox.ItemTemplate>
+        </ComboBox>
+        <Button x:Name="GetWeatherButton" Height="30" Width="100"  
+                Content="Get weather for"  
+                Margin="10,10,0,0" VerticalAlignment="Top"  
+                HorizontalAlignment="Left"
+                Click="GetWeather_Clicked">
+        </Button>
+        <Canvas Name="InnerCanvas">
+            <Label Canvas.Top="50" Canvas.Left="10">Country:</Label>
+            <Label Canvas.Top="50" Canvas.Left="55" Name="CountryLabel"></Label>
+
+            <Image Height="50" x:Name="icon"  Margin="10,10,0,0" Stretch="Fill" Width="50" Canvas.Left="10" Canvas.Top="70" />
+
+            <Label Margin="10,10,0,0" Canvas.Top="40" Canvas.Left="100">Weather description:</Label>
+            <Label Margin="10,10,0,0" Canvas.Top="40" Canvas.Left="210" Name="WeatherDescriptionLabel"></Label>
+            
+            <Label Margin="10,10,0,0" Canvas.Top="60" Canvas.Left="100">Temperature:</Label>
+            <Label Margin="10,10,0,0" Canvas.Top="60" Canvas.Left="210" Name="TemperatureLabel"></Label>
+            
+            <Label Margin="10,10,0,0" Canvas.Top="80" Canvas.Left="100">Feels like:</Label>
+            <Label Margin="10,10,0,0" Canvas.Top="80" Canvas.Left="210" Name="FeelsLikeLabel"></Label>
+            
+            <Label Margin="10,10,0,0" Canvas.Top="100" Canvas.Left="100">Humidity:</Label>
+            <Label Margin="10,10,0,0" Canvas.Top="100" Canvas.Left="210" Name="HumidityLabel"></Label>
+            
+            <Label Margin="10,10,0,0" Canvas.Top="120" Canvas.Left="100">Wind speed:</Label>
+            <Label Margin="10,10,0,0" Canvas.Top="120" Canvas.Left="210" Name="WindSpeedLabel"></Label>
+
+            <Label Margin="10,10,0,0" Canvas.Top="140" Canvas.Left="100">Sunrise:</Label>
+            <Label Margin="10,10,0,0" Canvas.Top="140" Canvas.Left="210" Name="SunriseLabel"></Label>
+            
+            <Label Margin="10,10,0,0" Canvas.Top="160" Canvas.Left="100">Sunset:</Label>
+            <Label Margin="10,10,0,0" Canvas.Top="160" Canvas.Left="210" Name="SunsetLabel"></Label>
+        </Canvas>
+    </Canvas>
+</Window>
